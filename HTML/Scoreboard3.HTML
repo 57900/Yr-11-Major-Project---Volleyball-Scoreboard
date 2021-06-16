@@ -10,24 +10,49 @@
 <body>
 
     <Div>
-        <h1>Input For 3 Sets</h1>
-        <input type="text" id="home" placeholder="Home Team Name"></text> <input type="text" id="away" placeholder="Away Team Name"></text>
-        <br>
-        <br>
-        <input type="text" id="homePlayerOne" placeholder="Enter 1st player's name"></text> <input type="text" id="awayPlayerOne" placeholder="Enter 1st player's name"></text>
-        <br>
-        <input type="text" id="homePlayerTwo" placeholder="Enter 2nd player's name"></text> <input type="text" id="awayPlayerTwo" placeholder="Enter 2nd player's name"></text>
-        <br>
-        <input type="text" id="homePlayerThree" placeholder="Enter 3rd player's name"></text> <input type="text" id="awayPlayerThree" placeholder="Enter 3rd player's name"></text>
-        <br>
-        <input type="text" id="homePlayerFour" placeholder="Enter 4th player's name"></text> <input type="text" id="awayPlayerFour" placeholder="Enter 4th player's name"></text>
-        <br>
-        <input type="text" id="homePlayerFive" placeholder="Enter 5th player's name"></text> <input type="text" id="awayPlayerFive" placeholder="Enter 5th player's name"></text>
-        <br>
-        <input type="text" id="homePlayerSix" placeholder="Enter 6th player's name"></text> <input type="text" id="awayPlayerSix" placeholder="Enter 6th player's name"></text>
-        <br>
-        <input type="text" id="homePlayerLib" placeholder="Enter Libero name"></text> <input type="text" id="awayPlayerLib" placeholder="Enter Libero name"></text>
-        <br>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+        <h1 id="SetTracker">Set 1</h1>
+        <button onclick="AddSet()">Next Set</button>
+
+        <div class="timer">
+          <h1>
+         <span class="minute">00</span>:<span class="second">10</span>
+            </h1>
+        </div>
+        <div class="control">
+            <button onClick="timer.start(1000)">Start</button> 
+            <button onClick="timer.stop()">Stop</button> 
+            <button onClick="timer.reset(3000)">Reset Timer</button> 
+        </div>
+
+<div id="HomeNameDiv">
+<input type="text" id="EnterHome" placeholder="Home Team"></input>
+<button type="button" id="AddHName" onclick="HomeName()">Enter</button>
+
+</div>
+
+<h1 id="HomeName"></h1>
+<h1 id="HomeDisplay"></h1>
+<button type="button" id="AddHome" onclick="HomePoint()">+1 Point</button>
+<button type="button" id="ReduceHome" onclick="HomeLoss()">-1 Point</button>
+
+<hr>
+
+<div id="AwayNameDiv">
+<input type="text" id="EnterAway" placeholder="Away Team"></input>
+<button type="button" id="AddAName" onclick="AwayName()">Enter</button>
+</div>
+
+<h1 id=AwayName></h1>
+<h1 id="AwayDisplay"></h1>
+<button type="button" id="AddAway" onclick="AwayPoint()">+1 Point</button>
+<button type="button" id="ReduceAway" onclick="AwayLoss()">-1 Point</button>
+
+<hr>
+
+<button type="button" id="Reset" onclick="Clear()">Reset Scoreboard</button>
+</div>
     </Div>
 
     <script src="JS/scoreBoard3.js"></script>
