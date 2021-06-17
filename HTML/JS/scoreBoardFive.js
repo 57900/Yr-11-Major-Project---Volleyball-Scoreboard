@@ -27,22 +27,7 @@ fifthSetOn.style.display = "none";
 
 function enterFiveSet(){
     var homeTeamName = document.getElementById("homeTeamFive").value
-    var homePlayerOne = document.getElementById("homePlayerOne").value
-    var homePlayerTwo = document.getElementById("homePlayerTwo").value
-    var homePlayerThree = document.getElementById("homePlayerThree").value
-    var homePlayerFour = document.getElementById("homePlayerFour").value
-    var homePlayerFive = document.getElementById("homePlayerFive").value
-    var homePlayerSix = document.getElementById("homePlayerSix").value
-    var homeLibero = document.getElementById("homePlayerLib").value
-
     var awayTeamName = document.getElementById("awayTeamFive").value
-    var awayplayerOne = document.getElementById("homePlayerOne").value
-    var awayplayerTwo = document.getElementById("homePlayerTwo").value
-    var awayPlayerThree = document.getElementById("homePlayerThree").value
-    var awayPlayerFour = document.getElementById("homePlayerFour").value
-    var awayPlayerFive = document.getElementById("homePlayerFive").value
-    var awayPlayerSix = document.getElementById("homePlayerSix").value
-    var awayLibero = document.getElementById("homePlayerLib").value
 
     if (homeTeamName == ""){
         if (awayTeamName == ""){
@@ -250,7 +235,7 @@ function onKeyUp(event){
                 document.getElementById("fourthSetOn").innerHTML = homeScore[3] + " 4th " + awayScore[3]
                 document.getElementById("fourthSet").innerHTML = homeScore[3] + " 4th " + awayScore[3]
             }else if (homeSetsWon + awaySetsWon == 4){
-                if (homeScore[4] < 24){
+                if (homeScore[4] < 14){
                     homeScore[4]= homeScore[4] + 1
                 }else if (homeScore[4] - awayScore[4] < 1){
                     homeScore[4] = homeScore[4] + 1
@@ -389,12 +374,12 @@ function onKeyUp(event){
                         thirdSet.style.display = "block";
                         fourthSet.style.display = "none";
                     }else if(homeSetsWon + awaySetsWon == 4){
-                            fifthSetOn.style.display = "block";
-                            secondSet.style.display = "block";
-                            firstSet.style.display = "block";
-                            fifthSet.style.display = "none";
-                            thirdSet.style.display = "block";
-                            fourthSet.style.display = "block";
+                        fifthSetOn.style.display = "block";
+                        secondSet.style.display = "block";
+                        firstSet.style.display = "block";
+                        fifthSet.style.display = "none";
+                        thirdSet.style.display = "block";
+                        fourthSet.style.display = "block";
                     }
                 }
             }   
@@ -483,7 +468,7 @@ function onKeyUp(event){
             document.getElementById("fourthSetOn").innerHTML = homeScore[3] + " 4th " + awayScore[3]
             document.getElementById("fourthSet").innerHTML = homeScore[3] + " 4th " + awayScore[3]
         }else if (homeSetsWon + awaySetsWon == 4){
-            if (awayScore[4] < 24){
+            if (awayScore[4] < 14){
                 awayScore[4]= awayScore[4] + 1
             }else if (awayScore[4] - homeScore[4] < 1){
                 awayScore[4] = awayScore[4] + 1
