@@ -1,5 +1,4 @@
-
-
+//Gets all the places for text
 var firstSet = document.getElementById("firstSet")
 firstSet.style.display = "none";
 var firstSetOn = document.getElementById("firstSetOn")
@@ -25,10 +24,18 @@ fifthSet.style.display = "none";
 var fifthSetOn = document.getElementById("fifthSetOn")
 fifthSetOn.style.display = "none";
 
+var inputs = document.getElementById("fiveSetInput")
+inputs.style.display = "block";
+
+var scoreboard = document.getElementById("fiveSetScoreboard")
+scoreboard.style.display = "none";
+
 function enterFiveSet(){
+    //Gets team names in textbox
     var homeTeamName = document.getElementById("homeTeamFive").value
     var awayTeamName = document.getElementById("awayTeamFive").value
 
+    //Changes the team names from home and away
     if (homeTeamName == ""){
         if (awayTeamName == ""){
             document.getElementById("namesOfTeams").innerHTML = "Home" + " VS " + "Away"
@@ -44,13 +51,21 @@ function enterFiveSet(){
     }else{
         document.getElementById("namesOfTeams").innerHTML = homeTeamName + " VS " + awayTeamName
     }
+    inputs.style.display = "none";
+    scoreboard.style.display = "block";
+    window.addEventListener("keyup", onKeyUp, false);
 }
 
-var homeScore = [0,0,0,0,0]
-var awayScore = [0,0,0,0,0]
-var awaySetsWon = 0
-var homeSetsWon = 0
-window.addEventListener("keyup", onKeyUp, false);
+function back(){
+    
+}
+
+
+var homeScore = [0,0,0,0,0] //Array with scores for 5 sets for home team
+var awayScore = [0,0,0,0,0] //Array with scores for 5 sets for away team
+var awaySetsWon = 0 //Away Sets won
+var homeSetsWon = 0 //Home Sets won
+ //When you press a key on your keboard it activates the score system
 
 
 
@@ -72,13 +87,13 @@ function onKeyUp(event){
                         firstSet.style.display = "block";
                         thirdSetOn.style.display = "block";
                     }else if(homeSetsWon + awaySetsWon == 3){ //display fourth set
-                        if (homeSetsWon == 3){
+                        if (homeSetsWon == 3){ //If home teams wins 3 sets
                             fourthSetOn.style.display = "none";
                             secondSet.style.display = "block";
                             firstSet.style.display = "block";
                             thirdSetOn.style.display = "none";
                             thirdSet.style.display = "block";
-                        }else{
+                        }else{ //Go into fourth set
                             fourthSetOn.style.display = "block";
                             secondSet.style.display = "block";
                             firstSet.style.display = "block";
@@ -86,14 +101,14 @@ function onKeyUp(event){
                             thirdSet.style.display = "block";
                         }
                     }else if(homeSetsWon + awaySetsWon == 4){ //display fifth set
-                        if (homeSetsWon == 3){
+                        if (homeSetsWon == 3){ //If home teams wins 3 sets
                             fifthSetOn.style.display = "none";
                             secondSet.style.display = "block";
                             firstSet.style.display = "block";
                             fourthSetOn.style.display = "none";
                             thirdSet.style.display = "block";
                             fourthSet.style.display = "block";
-                        }else{
+                        }else{ //Go into fifth set
                             fifthSetOn.style.display = "block";
                             secondSet.style.display = "block";
                             firstSet.style.display = "block";
@@ -113,33 +128,33 @@ function onKeyUp(event){
             }
         break;
         case 71:  //g key Home Sets goes down
-            if (homeSetsWon > 0){
-                if (awaySetsWon !== 3){
+            if (homeSetsWon > 0){ //To make sure the sets don't go past 0
+                if (awaySetsWon !== 3){ //To make sure the code stops working when away team has won
                     homeSetsWon = homeSetsWon - 1
                     document.getElementById("setsWon").innerHTML = homeSetsWon + " Sets " + awaySetsWon
-                    if (homeSetsWon + awaySetsWon == 0){
+                    if (homeSetsWon + awaySetsWon == 0){ //Shows first set
                         secondSetOn.style.display = "none";
                         firstSetOn.style.display = "block";
                         firstSet.style.display = "none";
-                    }else if(homeSetsWon + awaySetsWon == 1){
+                    }else if(homeSetsWon + awaySetsWon == 1){ //Shows second set
                         secondSetOn.style.display = "block";
                         secondSet.style.display = "none";
                         firstSet.style.display = "block";
                         thirdSetOn.style.display = "none";
-                    }else if(homeSetsWon + awaySetsWon == 2){
+                    }else if(homeSetsWon + awaySetsWon == 2){ //Shows third set
                         fourthSetOn.style.display = "none";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
                         thirdSetOn.style.display = "block";
                         thirdSet.style.display = "none";
-                    }else if(homeSetsWon + awaySetsWon == 3){
+                    }else if(homeSetsWon + awaySetsWon == 3){ //Shows fourth set
                         fifthSetOn.style.display = "none";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
                         fourthSetOn.style.display = "block";
                         thirdSet.style.display = "block";
                         fourthSet.style.display = "none";
-                    }else if(homeSetsWon + awaySetsWon == 4){
+                    }else if(homeSetsWon + awaySetsWon == 4){ //Shows fifth set
                         fifthSetOn.style.display = "block";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
@@ -152,27 +167,28 @@ function onKeyUp(event){
             }
         break;
         case 87:  //W Key Home score goes up
-            if (homeSetsWon + awaySetsWon == 0){
-                if (homeScore[0] < 24){
+            if (homeSetsWon + awaySetsWon == 0){ //Changes first set home score
+                if (homeScore[0] < 24){ //Checks if home home score is less then 24
                     homeScore[0] = homeScore[0] + 1
-                }else if (homeScore[0] - awayScore[0] < 1){
+                }else if (homeScore[0] - awayScore[0] < 1){ //If its greater then 24 checks if the is a 2 point difference
                     homeScore[0] = homeScore[0] + 1
-                }else{
+                }else{ //If points equal 25 or greate with a 2 point different then goes to second set
                     homeScore[0] = homeScore[0] + 1
                     homeSetsWon = homeSetsWon + 1
                     secondSetOn.style.display = "block";
                     firstSetOn.style.display = "none";
                     firstSet.style.display = "block";
                 } 
+                //Display Score
                 document.getElementById("firstSetOn").innerHTML = homeScore[0] + " 1st " + awayScore[0]
                 document.getElementById("firstSet").innerHTML = homeScore[0] + " 1st " + awayScore[0]
 
-            }else if (homeSetsWon + awaySetsWon == 1){
-                if (homeScore[1] < 24){
+            }else if (homeSetsWon + awaySetsWon == 1){ //Changes second set home score
+                if (homeScore[1] < 24){ //Checks if home home score is less then 24
                     homeScore[1]= homeScore[1] + 1
-                }else if (homeScore[1] - awayScore[1] < 1){
+                }else if (homeScore[1] - awayScore[1] < 1){ //If its greater then 24 checks if the is a 2 point difference
                     homeScore[1] = homeScore[1] + 1
-                }else{
+                }else{ //If points equal 25 or greate with a 2 point different then goes to third set
                     homeScore[1] = homeScore[1] + 1
                     homeSetsWon = homeSetsWon + 1
                     secondSetOn.style.display = "none";
