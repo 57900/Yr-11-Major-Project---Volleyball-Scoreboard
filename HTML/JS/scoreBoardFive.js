@@ -32,6 +32,8 @@ scoreboard.style.display = "none";
 
 var codeStopper = 0
 
+
+
 function enterFiveSet(){
     //Gets team names in textbox
     var homeTeamName = document.getElementById("homeTeamFive").value
@@ -561,5 +563,32 @@ function onKeyUp(event){
         }
         
         break;
+    }
+
+    var homeTeamName = document.getElementById("homeTeamFive").value
+    var awayTeamName = document.getElementById("awayTeamFive").value
+
+    if (homeSetsWon == 3){
+        if (homeTeamName == ""){
+            document.getElementById("winner").innerHTML = "Home Team Wins"
+        }else{
+            document.getElementById("winner").innerHTML = homeTeamName + " Wins"
+        }
+    }
+    
+    if (homeSetsWon == 2){
+        document.getElementById("winner").innerHTML = ""
+    }
+
+    if (awaySetsWon == 3){
+        if (awayTeamName == ""){
+            document.getElementById("winner").innerHTML = "Away Team Wins"
+        }else{
+            document.getElementById("winner").innerHTML = awayTeamName + " Wins"
+        }
+    }
+
+    if (awaySetsWon == 2){
+        document.getElementById("winner").innerHTML = ""
     }
 }
