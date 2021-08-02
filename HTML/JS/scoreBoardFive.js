@@ -1,40 +1,49 @@
-//Gets all the places for text
+//Gets first Set Score
 var firstSet = document.getElementById("firstSet")
 firstSet.style.display = "none";
 var firstSetOn = document.getElementById("firstSetOn")
 firstSetOn.style.display = "block";
 
+//Gets Second Set Score
 var secondSet = document.getElementById("secondSet")
 secondSet.style.display = "none";
 var secondSetOn = document.getElementById("secondSetOn")
 secondSetOn.style.display = "none";
 
+//Gets Third Set Score
 var thirdSet = document.getElementById("thirdSet")
 thirdSet.style.display = "none";
 var thirdSetOn = document.getElementById("thirdSetOn")
 thirdSetOn.style.display = "none";
 
+//Gets Fouth Set Score
 var fourthSet = document.getElementById("fourthSet")
 fourthSet.style.display = "none";
 var fourthSetOn = document.getElementById("fourthSetOn")
 fourthSetOn.style.display = "none";
 
+//Gets Fifth Set Score
 var fifthSet = document.getElementById("fifthSet")
 fifthSet.style.display = "none";
 var fifthSetOn = document.getElementById("fifthSetOn")
 fifthSetOn.style.display = "none";
 
+//Input section div
 var inputs = document.getElementById("fiveSetInput")
 inputs.style.display = "block";
 
+//Scoreboard Div
 var scoreboard = document.getElementById("fiveSetScoreboard")
 scoreboard.style.display = "none";
 
+//Man of the Match Div
 var manOfTheMatch = document.getElementById("manOfTheMatch")
 manOfTheMatch.style.display = "none"
 
+//Back button to input section
 var backInput = document.getElementById("backInput")
 
+//enter button for Man of the match
 var MOTMEnter = document.getElementById("MOTMEnter")
 
 
@@ -69,6 +78,7 @@ function enterFiveSet(){
     window.addEventListener("keyup", onKeyUp, false);
 }
 
+//back button to input section
 function back(){
     inputs.style.display = "block";
     scoreboard.style.display = "none";
@@ -207,7 +217,7 @@ function onKeyUp(event){
                     homeScore[0] = homeScore[0] + 1
                 }else if (homeScore[0] - awayScore[0] < 1){ //If its greater then 24 checks if the is a 2 point difference
                     homeScore[0] = homeScore[0] + 1
-                }else{ //If points equal 25 or greate with a 2 point different then goes to second set
+                }else{ //if not any of that then goes to next set
                     homeScore[0] = homeScore[0] + 1
                     homeSetsWon = homeSetsWon + 1
                     secondSetOn.style.display = "block";
@@ -223,7 +233,7 @@ function onKeyUp(event){
                     homeScore[1]= homeScore[1] + 1
                 }else if (homeScore[1] - awayScore[1] < 1){ //If its greater then 24 checks if the is a 2 point difference
                     homeScore[1] = homeScore[1] + 1
-                }else{ //If points equal 25 or greate with a 2 point different then goes to third set
+                }else{ //if not any of that then goes to next set
                     homeScore[1] = homeScore[1] + 1
                     homeSetsWon = homeSetsWon + 1
                     secondSetOn.style.display = "none";
@@ -234,15 +244,15 @@ function onKeyUp(event){
                 document.getElementById("secondSetOn").innerHTML = homeScore[1] + " 2nd " + awayScore[1]
                 document.getElementById("secondSet").innerHTML = homeScore[1] + " 2nd " + awayScore[1]
 
-            }else if (homeSetsWon + awaySetsWon == 2){
-                if (homeScore[2] < 24){
+            }else if (homeSetsWon + awaySetsWon == 2){ //Change third set home score
+                if (homeScore[2] < 24){ //Checks if home home score is less then 24
                     homeScore[2]= homeScore[2] + 1
-                }else if (homeScore[2] - awayScore[2] < 1){
+                }else if (homeScore[2] - awayScore[2] < 1){//If its greater then 24 checks if the is a 2 point difference
                     homeScore[2] = homeScore[2] + 1
                 }else{
                     homeScore[2] = homeScore[2] + 1
                     homeSetsWon = homeSetsWon + 1
-                    if (homeSetsWon == 3){
+                    if (homeSetsWon == 3){ // See if home team wins
                         fourthSetOn.style.display = "none";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
@@ -251,7 +261,7 @@ function onKeyUp(event){
                         manOfTheMatch.style.display = "block";
                         backInput.style.display = "none";
                         codeStopper = 0
-                    }else{
+                    }else{ //If not go onto next set
                         fourthSetOn.style.display = "block";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
@@ -262,15 +272,15 @@ function onKeyUp(event){
                 document.getElementById("thirdSetOn").innerHTML = homeScore[2] + " 3rd " + awayScore[2]
                 document.getElementById("thirdSet").innerHTML = homeScore[2] + " 3rd " + awayScore[2]
 
-            }else if (homeSetsWon + awaySetsWon == 3){
-                if (homeScore[3] < 24){
+            }else if (homeSetsWon + awaySetsWon == 3){ //Change Fourth set home score
+                if (homeScore[3] < 24){ //Checks if home home score is less then 24
                     homeScore[3]= homeScore[3] + 1
-                }else if (homeScore[3] - awayScore[3] < 1){
+                }else if (homeScore[3] - awayScore[3] < 1){ //If its greater then 24 checks if the is a 2 point difference
                     homeScore[3] = homeScore[3] + 1
                 }else{
                     homeScore[3] = homeScore[3] + 1
                     homeSetsWon = homeSetsWon + 1
-                    if (homeSetsWon == 3){
+                    if (homeSetsWon == 3){// See if home team wins
                         fifthSetOn.style.display = "none";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
@@ -280,7 +290,7 @@ function onKeyUp(event){
                         manOfTheMatch.style.display = "block";
                         backInput.style.display = "none";
                         codeStopper = 0
-                    }else{
+                    }else{//If not go onto next set
                         fifthSetOn.style.display = "block";
                         secondSet.style.display = "block";
                         firstSet.style.display = "block";
@@ -291,7 +301,7 @@ function onKeyUp(event){
                 } 
                 document.getElementById("fourthSetOn").innerHTML = homeScore[3] + " 4th " + awayScore[3]
                 document.getElementById("fourthSet").innerHTML = homeScore[3] + " 4th " + awayScore[3]
-            }else if (homeSetsWon + awaySetsWon == 4){
+            }else if (homeSetsWon + awaySetsWon == 4){ //Change Fifth set home score
                 if (homeScore[4] < 14){
                     homeScore[4]= homeScore[4] + 1
                 }else if (homeScore[4] - awayScore[4] < 1){
@@ -472,7 +482,7 @@ function onKeyUp(event){
         break;
         case 73:  //i key Away score goes up
         if (codeStopper == 1){
-            if (homeSetsWon + awaySetsWon == 0){
+            if (homeSetsWon + awaySetsWon == 0){ //First Set
                 if (awayScore[0] < 24){
                     awayScore[0] = awayScore[0] + 1
                 }else if (awayScore[0] - homeScore[0] < 1){
@@ -487,7 +497,7 @@ function onKeyUp(event){
                 document.getElementById("firstSetOn").innerHTML = homeScore[0] + " 1st " + awayScore[0]
                 document.getElementById("firstSet").innerHTML = homeScore[0] + " 1st " + awayScore[0]
 
-            }else if (homeSetsWon + awaySetsWon == 1){
+            }else if (homeSetsWon + awaySetsWon == 1){ //Second Set
                 if (awayScore[1] < 24){
                     awayScore[1]= awayScore[1] + 1
                 }else if (awayScore[1] - homeScore[1] < 1){
@@ -503,7 +513,7 @@ function onKeyUp(event){
                 document.getElementById("secondSetOn").innerHTML = homeScore[1] + " 2nd " + awayScore[1]
                 document.getElementById("secondSet").innerHTML = homeScore[1] + " 2nd " + awayScore[1]
 
-            }else if (homeSetsWon + awaySetsWon == 2){
+            }else if (homeSetsWon + awaySetsWon == 2){ //Third Set
                 if (awayScore[2] < 24){
                     awayScore[2]= awayScore[2] + 1
                 }else if (awayScore[2] - homeScore[2] < 1){
@@ -531,7 +541,7 @@ function onKeyUp(event){
                 document.getElementById("thirdSetOn").innerHTML = homeScore[2] + " 3rd " + awayScore[2]
                 document.getElementById("thirdSet").innerHTML = homeScore[2] + " 3rd " + awayScore[2]
 
-            }else if (homeSetsWon + awaySetsWon == 3){
+            }else if (homeSetsWon + awaySetsWon == 3){ //Fourth Set
                 if (awayScore[3] < 24){
                     awayScore[3]= awayScore[3] + 1
                 }else if (awayScore[3] - homeScore[3] < 1){
@@ -560,7 +570,7 @@ function onKeyUp(event){
                 } 
                 document.getElementById("fourthSetOn").innerHTML = homeScore[3] + " 4th " + awayScore[3]
                 document.getElementById("fourthSet").innerHTML = homeScore[3] + " 4th " + awayScore[3]
-            }else if (homeSetsWon + awaySetsWon == 4){
+            }else if (homeSetsWon + awaySetsWon == 4){ //Fifth Set
                 if (awayScore[4] < 14){
                     awayScore[4]= awayScore[4] + 1
                 }else if (awayScore[4] - homeScore[4] < 1){
@@ -632,7 +642,7 @@ function onKeyUp(event){
     var homeTeamName = document.getElementById("homeTeamFive").value
     var awayTeamName = document.getElementById("awayTeamFive").value
 
-    if (homeSetsWon == 3){
+    if (homeSetsWon == 3){ // Displays home team wins
         if (homeTeamName == ""){
             document.getElementById("winner").innerHTML = "Home Team Wins"
         }else{
@@ -640,11 +650,11 @@ function onKeyUp(event){
         }
     }
     
-    if (homeSetsWon == 2){
+    if (homeSetsWon == 2){ //hide winner sentence
         document.getElementById("winner").innerHTML = ""
     }
 
-    if (awaySetsWon == 3){
+    if (awaySetsWon == 3){ // Displays Away team wins
         if (awayTeamName == ""){
             document.getElementById("winner").innerHTML = "Away Team Wins"
         }else{
@@ -652,7 +662,7 @@ function onKeyUp(event){
         }
     }
 
-    if (awaySetsWon == 2){
+    if (awaySetsWon == 2){//hide winner sentence
         document.getElementById("winner").innerHTML = ""
     }
 }
@@ -708,6 +718,7 @@ function findMOTM(){
     binarysearch(name,list);
 }
 
+//Search for Man of the Match
 var binarysearch = function (name,list) {
     var lower = 0,
         upper = list.length - 1,
@@ -730,18 +741,18 @@ var binarysearch = function (name,list) {
     }
     while (foundit === false && lower <= upper);
 
-    if (foundit) {
+    if (foundit) { //Found the player
         document.getElementById("displayMOTM").innerHTML = list[positionfound] + "  is The Man of The Match"
         console.log('Name found at position  ' + positionfound);
         MOTMEnter.style.display = "none"
-    } else {
+    } else { //Player not found
         alert("player not found. Enter a actual player!")
     }
 };    
 
 
 
-var sort = function (list) {
+var sort = function (list) { //sort the array of names
 
     var comparisons = 0,
         swaps = 0,
@@ -777,12 +788,12 @@ var sort = function (list) {
     return list;
 };
 
-function ChangeMOTM(){
+function ChangeMOTM(){//change man of the match
     MOTMEnter.style.display = "block"
     document.getElementById("displayMOTM").innerHTML = ""
 }
 
-function backScore(){
+function backScore(){//go back to scoreboard
     manOfTheMatch.style.display = "none"
     codeStopper = 1
 }
